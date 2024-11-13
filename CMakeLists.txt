@@ -21,10 +21,24 @@ ament_target_dependencies(
    tf2_ros
 )
 
+add_executable(tf2_broadcaster src/tf2_broadcaster.cpp)
+ament_target_dependencies(
+   tf2_broadcaster
+   geometry_msgs
+   rclcpp
+   tf2
+   tf2_ros
+)
+
 
 install(TARGETS
    static_tf2_broadcaster
    DESTINATION lib/${PROJECT_NAME})
+
+install(TARGETS
+   tf2_broadcaster
+   DESTINATION lib/${PROJECT_NAME})
+
 
 
 if(BUILD_TESTING)
